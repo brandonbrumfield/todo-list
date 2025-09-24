@@ -1,11 +1,17 @@
 import {ToDo, task_list} from "./toDo.js"
 import {addEventComplete, addEventPriority, addEventRemove} from "./toDoButtons.js"
+import { current_project } from "./switchProjects.js";
+import { populateStorage } from "./storage.js";
+
 
 export function createToDo(fun_title, fun_desc, fun_due , fun_priority) {
     const main = document.getElementById("main");
     const task = new ToDo(fun_title, fun_desc, fun_due, fun_priority);
     task.id = crypto.randomUUID();
+    task.project = current_project;
     task_list.push(task); 
+    populateStorage(task.title, task);
+    populateStorage("task_list", task_list);
 
     const todo_card = document.createElement('div');
     todo_card.classList.add("todo");

@@ -1,3 +1,5 @@
+import { getStorage } from "./storage";
+
 export class ToDo {
 
     constructor(title, description, dueDate, priority) {
@@ -6,6 +8,7 @@ export class ToDo {
         this.dueDate = dueDate;
         this.priority = priority;
         this.completed = false;
+
     }
 
     toggleComplete() {
@@ -22,4 +25,15 @@ export class ToDo {
 
 }
 
-export const task_list = [];
+let task_list;
+
+
+if (getStorage("task_list") == null) {
+    task_list = [];
+}
+
+else {
+    task_list = getStorage("task_list");
+}
+
+export {task_list};

@@ -15,7 +15,9 @@ header {
 .sidebar {
     background-color: rgb(129, 146, 130);
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .main {
@@ -93,4 +95,9 @@ h2 {
 
 #head-text {
     margin-right: 10rem;
+}
+
+.project_span {
+    font-size: 2rem;
+    cursor: pointer;
 }
