@@ -1,5 +1,5 @@
 import {ToDo, task_list} from "./toDo.js"
-import {addEventComplete, addEventPriority, addEventRemove} from "./toDoButtons.js"
+import {addEventComplete, addEventPriority, addEventRemove, addNotes} from "./toDoButtons.js"
 import { current_project } from "./switchProjects.js";
 
 
@@ -50,6 +50,11 @@ export function displayToDos() {
             priority_button.textContent = "Change Priority";
             addEventPriority(priority_button);
 
+            const notes_button = document.createElement("div");
+            notes_button.classList.add("todo_button");
+            notes_button.textContent = "View Notes";
+            addNotes(notes_button);
+
             todo_card.appendChild(title);
             todo_card.appendChild(desc);
             todo_card.appendChild(dueDate);
@@ -57,6 +62,7 @@ export function displayToDos() {
             todo_card.appendChild(complete);
             todo_card.appendChild(remove);
             todo_card.appendChild(priority_button);
+            todo_card.appendChild(notes_button);
             main.appendChild(todo_card);
             }
     }

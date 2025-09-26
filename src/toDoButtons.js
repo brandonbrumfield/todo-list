@@ -3,6 +3,9 @@ import { displayToDos } from "./displayToDos.js";
 import { populateStorage } from "./storage.js";
 import { project_list } from "./project.js";
 
+const notes_dialog = document.querySelector("#notes_dialog");
+const notes = document.querySelector('#notes');
+
 export function addEventComplete(completeBtn) {
     completeBtn.addEventListener("click", (e) => {
         let task_div = e.target.parentElement;
@@ -88,4 +91,42 @@ export function addEventPriority(priorityBtn) {
 
 }
 
+let active_task = null;
 
+export function addNotes(notesBtn) {
+    notesBtn.addEventListener("click", (e) => {
+        let task_div = e.target.parentElement;
+        active_task = task_div;
+
+
+
+        for (let i = 0; i < task_list.length; i++) {
+                if (task_list[i].id == task_div.id) {
+                        if (task_list[i].notes == "") {
+                            notes.value = "";
+                            notes_dialog.showModal();
+                        }
+
+                        else {notes.value = task_list[i].notes; notes_dialog.showModal();}
+                    }
+
+                }
+        
+        
+        
+    })
+
+}
+
+
+notes_dialog.addEventListener("close", (e) => {
+            for (let i = 0; i < task_list.length; i++) {
+                        if (task_list[i].id == active_task.id) {
+                                task_list[i].notes = notes.value;
+                            }
+
+                        }
+                
+            
+                populateStorage("task_list", task_list);
+})
