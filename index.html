@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+<script defer src="main.js"></script></head>
+<body>
+    <header> 
+        <h1 id="head-text">To-Do List</h1>
+        <button class="add" id="add">Add Task</button>
+
+        <dialog class="task_dialog" id="task_dialog">
+            <form id="task_form" method="dialog">
+                <label for="task">Task</label>
+                <input type="text" id="task" name="task" required>
+
+                <label for="description">Description</label>
+                <input type="text" id="description" name="description" required>
+
+                <label for="due">Due Date</label>
+                <input type="text" id="due" name="due" required>
+
+                <label for="priority">Priority</label>
+                <input type="number" id="priority" name="priority" min="1" max="100">
+
+
+                <button type="submit">Add</button>
+            </form>
+
+
+
+
+        </dialog>
+
+        <dialog class="notes_dialog" id="notes_dialog">
+                <textarea id="notes" placeholder="Enter your notes" rows="20" cols="100"></textarea>
+
+
+
+
+
+        </dialog>
+    
+    </header>
+
+    <div class="content">
+        <div class="sidebar" id="sidebar">
+            <h2>Projects</h2>
+            <div class="todo_button" id="add_project">Add Project</div>
+            
+        </div>
+
+        <div id="main" class="main">
+
+            
+            
+            
+        </div>
+    </div>
+    
+</body>
+</html>
